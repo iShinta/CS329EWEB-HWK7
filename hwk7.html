@@ -50,13 +50,13 @@
 			}
 
 			var monthly = amount * (rate / 100) / ( 1 - (1 / Math.pow((1 + (rate / 100)), term)) );
-			document.forms["mortgageform"]["monthly"].value = monthly;
+			document.forms["mortgageform"]["monthly"].value = Math.round(monthly * 100)/100;
 
-			var sum = amount + monthly * term;
-			document.forms["mortgageform"]["sum"].value = sum;
+			var sum = parseInt(amount) + (monthly * term);
+			document.forms["mortgageform"]["sum"].value = Math.round(sum * 100)/100;
 
 			var interest = monthly * term;
-			document.forms["mortgageform"]["interest"].value = interest;
+			document.forms["mortgageform"]["interest"].value = Math.round(interest * 100)/100;
 
 			alert("Mortgage has been calculated");
 			return false;
