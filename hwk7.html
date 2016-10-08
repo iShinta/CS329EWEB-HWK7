@@ -6,5 +6,104 @@
 </head>
 
 <body>
+	<script type="text/javascript">
+	<!--
+		function validate(){
+			var amount = document.forms["mortgageform"]["principal"].value;
+			//Validation
+			if(amount == ""){
+				alert("The principal amount cannot be empty");
+				return false;
+			}else if(isNaN(amount)){
+				alert("The principal amount has to be a numerical value");
+				return false;
+			}else if(amount < 0){
+				alert("The principal amount has to be positive");
+				return false;
+			}
+
+
+			var rate = document.forms["mortgageform"]["rate"].value;
+			//Validation
+			if(rate == ""){
+				alert("The interest rate amount cannot be empty");
+				return false;
+			}else if(isNaN(rate)){
+				alert("The interest rate amount has to be a numerical value");
+				return false;
+			}else if(rate < 0){
+				alert("The interest rate amount has to be positive");
+				return false;
+			}
+
+			var term = document.forms["mortgageform"]["term"].value;
+			//Validation
+			if(term == ""){
+				alert("The loan term cannot be empty");
+				return false;
+			}else if(isNaN(term)){
+				alert("The loan term has to be a numerical value");
+				return false;
+			}else if(amount < 0){
+				alert("The loan term has to be positive");
+				return false;
+			}
+
+			var monthly = amount * (rate / 100) / ( 1 - (1 / Math.pow((1 + (rate / 100)), term)) );
+			document.forms["mortgageform"]["monthly"].value = monthly;
+			//Validation
+
+
+			var sum = 0;
+			document.forms["mortgageform"]["sum"].value = 0;
+			//Validation
+
+
+			var interest = 0;
+			document.forms["mortgageform"]["interest"].value = 0;
+			//Validation
+
+			alert("Mortgage has been calculated");
+			return false;
+		}
+	-->
+	</script>
+	<div><h1>Mortgage Calculator</h1></div>
+	<div>
+		<form name="mortgageform" method="post" action="" />
+			<table>
+				<tbody>
+					<tr>
+						<td>Principal Amount: </td>
+						<td><input name="principal" type="text" size="30" /></td>
+					</tr>
+					<tr>
+						<td>Yearly percentage interest rate: </td>
+						<td><input name="rate" type="text" size="30" /></td>
+					</tr>
+					<tr>
+						<td>Loan term (in month)</td>
+						<td><input name="term" type="text" size="30" /></td>
+					</tr>
+					<tr>
+						<td><input name="submit" type="submit" onclick="return validate();" /></td>
+						<td><input name="reset" type="reset" /></td>
+					</tr>
+					<tr>
+						<td>Monthly Payment</td>
+						<td><input name="monthly" type="text" size="30" /></td>
+					</tr>
+					<tr>
+						<td>Sum of all payments</td>
+						<td><input name="sum" type="text" size="30" /></td>
+					</tr>
+					<tr>
+						<td>Total interest paid</td>
+						<td><input name="interest" type="text" size="30" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
 </body>
 </html>
