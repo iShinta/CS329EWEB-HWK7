@@ -51,7 +51,7 @@
 
 			//Formatage
 			rate = rate / 12;
-			term = Math.ceil(term);
+			term = Math.round(term);
 
 			var monthly = amount * (rate / 100) / ( 1 - (1 / Math.pow((1 + (rate / 100)), term)) );
 			document.forms["mortgageform"]["monthly"].value = Math.round(monthly * 100)/100;
